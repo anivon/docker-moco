@@ -11,11 +11,12 @@ RUN apk add --no-cache \
     && curl -sL https://raw.githubusercontent.com/dreamhead/moco/master/moco-shell/moco > /usr/local/bin/moco \
     && chmod 0755 /usr/local/bin/moco \
     && /usr/local/bin/moco \
-    && printf "[]" > /var/lib/moco.json \
+    && mkdir -p /var/lib/moco \
+    && printf "[]" > /var/lib/moco/moco.json \
     && rm -rf \
         /tmp/* \
         /var/cache/apk/*
 
 EXPOSE 8000
 
-CMD ["/usr/local/bin/moco", "start", "-p", "8000", "-c", "/var/lib/moco.json"]
+CMD ["/usr/local/bin/moco", "start", "-p", "8000", "-c", "/var/lib/moco/moco.json"]
