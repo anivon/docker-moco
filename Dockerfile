@@ -13,6 +13,7 @@ RUN apk add --no-cache \
     && /usr/local/bin/moco \
     && mkdir -p /var/moco \
     && printf "[]" > /var/moco/moco.json \
+    && chmod 777 /var/moco/moco.json \
     && rm -rf \
         /tmp/* \
         /var/cache/apk/*
