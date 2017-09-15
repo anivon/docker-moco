@@ -18,6 +18,7 @@ RUN apk add --no-cache \
         /tmp/* \
         /var/cache/apk/*
 
-EXPOSE 8000
+ENTRYPOINT ["/usr/local/bin/moco"]
 
-CMD ["/usr/local/bin/moco", "start", "-p", "8000", "-c", "/var/moco/moco.json"]
+EXPOSE 8000
+CMD ["start", "-p", "8000", "-c", "/var/moco/moco.json"]
